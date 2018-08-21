@@ -24,17 +24,10 @@ steps:
 
 - task: PublishTestResults@2
 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+- task: PublishCodeCoverageResults@1
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-
-# - task: PublishCodeCoverageResults
 
