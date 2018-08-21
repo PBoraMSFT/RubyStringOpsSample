@@ -18,5 +18,5 @@ steps:
 # - script: bundle exec rake
 #  displayName: 'bundle exec rake'
 
-- script: bundle exec rspec --format RspecJunitFormatter --out test_results/rspec.xml
+- script: bundle exec rspec spec --format RspecJunitFormatter --out test_results/rspec.xml
 
